@@ -14,7 +14,7 @@ class CustomViewController: YHPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        
-        //self.showPageAtIndex(0, animated: true)
+        self.showPageAtIndex(0, animated: true)
 
     }
     

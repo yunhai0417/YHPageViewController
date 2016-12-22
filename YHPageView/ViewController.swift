@@ -17,14 +17,11 @@ class ViewController: UIViewController {
         //self.navigationController?.hidesBarsOnSwipe = true
         self.title = "title"
         self.navigationController?.navigationBar.isTranslucent = false
-        
-        let leftbarBtn = UIButton(frame: CGRect(x: 0, y: 100, width: 20, height: 20))
-        leftbarBtn.setImage(#imageLiteral(resourceName: "nu_back_btn_black"), for: UIControlState())
-        leftbarBtn.addTarget(self, action: #selector(self.leftBarBtnClick(_:)), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(leftbarBtn)
-        
-        
-
+    }
+    
+    @IBAction func pageViewBtnAction(_ sender: Any) {
+        let vc = CustomViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,10 +29,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func leftBarBtnClick(_ sender:UIButton){
+    
         
-        let vc = CustomViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+       
         
        /* 
         if statue {
@@ -56,7 +52,7 @@ class ViewController: UIViewController {
             self.statue = !self.statue
         })
         */
-    }
+
 
 }
 

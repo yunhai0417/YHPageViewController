@@ -51,7 +51,7 @@ class YHPageViewController: UIViewController,
     public var tabViewBackgroundColor = UIColor.white
     public var lineBottomColor = UIColor(red: 4/255.0, green: 157/255.0, blue: 234/255.0, alpha: 1.0)
     public var lineBottomHeight:CGFloat = 2
-    public var titlesMinSpace:CGFloat = 1
+    public var titlesMinSpace:CGFloat = 18   //文字左右空白
     public var pageSelectedColor = UIColor(red: 4/255.0, green: 157/255.0, blue: 234/255.0, alpha: 1.0)     //选择颜色
     public var pageUnSelectedColor = UIColor(red: 84/255.0, green: 90/255.0, blue: 97/255.0, alpha: 1.0)    //未选择颜色
 
