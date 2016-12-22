@@ -7,7 +7,7 @@
 //
 
 import UIKit
-extension YHPageViewController : YHPageViewDelegate{
+extension YHPageViewController  {
     // MARK: YHPageViewDelegate
     
     func pageScrollviewWillShow(_ fromIndex: Int, toIndex: Int, animated: Bool) {

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-extension YHPageViewController : YHPageViewDataSource{
+extension YHPageViewController  {
 
     // MARK: YHPageViewDataSource
     func pageView(_ pageView: YHPageViewController, controllerAtIndex index: Int) -> UIViewController {

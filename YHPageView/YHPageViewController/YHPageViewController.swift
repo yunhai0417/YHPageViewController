@@ -10,7 +10,7 @@ import UIKit
 
 class YHPageViewController: UIViewController,
     UIScrollViewDelegate,NSCacheDelegate
-    
+    ,YHPageViewDelegate,YHPageViewDataSource
 {
     weak var delegate:YHPageViewDelegate?
     weak var dataSource:YHPageViewDataSource?

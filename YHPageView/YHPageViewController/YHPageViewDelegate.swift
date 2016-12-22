@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol YHPageViewDelegate {
+@objc protocol YHPageViewDelegate : class{
     
     func pageScrollviewWillShow(_ fromIndex:Int ,toIndex:Int, animated:Bool)
     

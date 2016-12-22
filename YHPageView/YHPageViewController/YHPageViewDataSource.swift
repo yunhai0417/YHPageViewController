@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol YHPageViewDataSource {
+@objc protocol YHPageViewDataSource : class {
     
     
     
