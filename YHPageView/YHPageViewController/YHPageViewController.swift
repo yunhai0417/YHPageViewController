@@ -89,10 +89,12 @@ class YHPageViewController: UIViewController,
         self.dataSource = self
         self.memCache.delegate = self
         //load CurrentUI
-        loadCurrentUI()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        
         if firstWillAppear {
             if let delegate = delegate {
                 delegate.pageScrollviewWillShow(_lastSelectedIndex, toIndex: _currentIndex, animated: false)
@@ -411,7 +413,6 @@ class YHPageViewController: UIViewController,
         if vc == nil {
             vc = self.controllerAtIndex(index)
             vc?.view.tag = index + 10
-            print("=======\(vc?.view.tag)")
         }
         let childViewFrame = calcVisibleViewControllerFrameWith(index)
         if let pageScrollview = pageScrollview {
@@ -487,12 +488,12 @@ class YHPageViewController: UIViewController,
             if pageScrollview == nil {
                 pageScrollview = UIScrollView()
             }
-            
-            pageScrollview?.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+            if let dataSource = dataSource{
+            pageScrollview?.frame = dataSource.pageScrollViewSize(self)
             pageScrollview?.delegate = self
             pageScrollview?.backgroundColor = UIColor.white
 
-            if let dataSource = dataSource{
+            
                 let count = dataSource.numberOfControllers(self)
                 pageScrollview?.contentSize = CGSize(width: view.frame.width * CGFloat(count), height: 0)
                 

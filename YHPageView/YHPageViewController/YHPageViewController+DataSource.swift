@@ -31,6 +31,15 @@ extension YHPageViewController  {
                       height: 44)
     }
     
+    func pageScrollViewSize(_ pageView: YHPageViewController) -> CGRect {
+        let screenBounds:CGRect = UIScreen.main.bounds
+        return CGRect(x: 0,
+                      y: 0,
+                      width: screenBounds.size.width,
+                      height: screenBounds.size.height)
+    }
+    
+    
     func pageView(_ pageView: YHPageViewController, titleAtIndex index: Int) -> String {
         return "title\(index)"
     }

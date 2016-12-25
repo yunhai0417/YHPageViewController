@@ -14,9 +14,17 @@ class CustomViewController: YHPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        
+//        self.navigationController?.hidesBarsOnSwipe = true
+        
+        
+        
+        loadCurrentUI()
         self.showPageAtIndex(0, animated: true)
+        
 
     }
+    
+
     
     override func numberOfControllers(_ pageView: YHPageViewController) -> Int {
         return 11
@@ -51,6 +59,16 @@ class CustomViewController: YHPageViewController {
         vc.pageIndex = index
         vc.view.backgroundColor = UIColor(red: colorStep * CGFloat((index + 1) % 2), green: colorStep * CGFloat((index + 1)  % 3), blue: colorStep * CGFloat((index + 1)  % 5), alpha: 1)
         return vc
+    }
+    
+    
+    override func pageViewTopSize(_ pageView: YHPageViewController) -> CGRect {
+        return CGRect(x: 0, y: 64, width: view.frame.size.width, height: 44)
+    }
+    
+    override func pageScrollViewSize(_ pageView: YHPageViewController) -> CGRect {
+        let screenBounds:CGRect = UIScreen.main.bounds
+        return CGRect(x: 0, y: 64, width: screenBounds.size.width, height: screenBounds.size.height - 64)
     }
     
 }

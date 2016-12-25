@@ -22,6 +22,9 @@ import UIKit
     //设置pageTabview->CGRect
     func pageViewTopSize(_ pageView:YHPageViewController) ->CGRect
     
+    //设置PageScrollviewSize
+    func pageScrollViewSize(_ pageView:YHPageViewController) ->CGRect
+    
     //获取title 文字
     func pageView(_ pageView:YHPageViewController,titleAtIndex index:Int) -> String
     
