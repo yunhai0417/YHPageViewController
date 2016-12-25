@@ -14,7 +14,6 @@ class CustomViewController: YHPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        
-//        self.navigationController?.hidesBarsOnSwipe = true
         
         
         
