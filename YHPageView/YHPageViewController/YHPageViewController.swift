@@ -16,8 +16,8 @@ class YHPageViewController: UIViewController,
     weak var dataSource:YHPageViewDataSource?
     
     //MARK:IB
-    fileprivate var pageTabView:UIView?
-    fileprivate var pageTabScrollview:UIScrollView?
+    var pageTabView:UIView?
+    var pageTabScrollview:UIScrollView?
     fileprivate var pageScrollview:UIScrollView?
     fileprivate var lineBottom:UIView?  //游标
     

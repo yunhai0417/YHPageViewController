@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomViewController: YHPageViewController {
+class CustomViewController: YHPageViewController ,YHPageViewHIddenBarDelegate{
     
     
     override func viewDidLoad() {
@@ -53,10 +53,9 @@ class CustomViewController: YHPageViewController {
     
     override func pageView(_ pageView: YHPageViewController, controllerAtIndex index: Int) -> UIViewController {
         
-        let colorStep:CGFloat = 1/4
         let vc = TableController()
         vc.pageIndex = index
-        vc.view.backgroundColor = UIColor(red: colorStep * CGFloat((index + 1) % 2), green: colorStep * CGFloat((index + 1)  % 3), blue: colorStep * CGFloat((index + 1)  % 5), alpha: 1)
+        vc.delegate = self
         return vc
     }
     
@@ -70,4 +69,60 @@ class CustomViewController: YHPageViewController {
         return CGRect(x: 0, y: 64, width: screenBounds.size.width, height: screenBounds.size.height - 64)
     }
     
+    func changeNavBarStatue(_ scrollview:UIScrollView, _ isHidden: Bool, _ currentOffset: CGFloat) {
+        
+        guard let pageTabView = pageTabView else {
+            return
+        }
+        
+        guard let pageTabScrollview = pageTabScrollview else {
+            return
+        }
+        
+        let tempTopY = pageTabView.frame.origin.y - currentOffset
+        if isHidden{
+            let topViewDelta:CGFloat = 64
+            let scrollViewDelta = scrollview.contentOffset.y + 44
+            let delta = topViewDelta - scrollViewDelta
+            if delta < 0 {
+                if tempTopY <= 20{
+                    pageTabView.frame.origin.y = 20
+                    pageTabScrollview.frame.origin.y = 20
+                }else{
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.pageTabView?.frame.origin.y = 20
+                        self.pageTabScrollview?.frame.origin.y = 20
+                    })
+                }
+            }
+            
+        }else{
+            
+            if pageTabView.frame.origin.y >= CGFloat(64) {
+                pageTabView.frame.origin.y = 64
+                pageTabScrollview.frame.origin.y = 64
+            }else if pageTabScrollview.frame.origin.y - currentOffset <= 64 {
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.pageTabView?.frame.origin.y = 64
+                    self.pageTabScrollview?.frame.origin.y = 64
+                })
+                
+            }else {
+                pageTabView.frame.origin.y = 64
+                pageTabScrollview.frame.origin.y = 64
+            }
+            
+            
+        }
+    }
+    
+    func currentNavBarSatue() -> Bool {
+        if pageTabView?.frame.origin.y ==  20 {
+            return true
+        }
+        return false
+    }
+    
+   
 }

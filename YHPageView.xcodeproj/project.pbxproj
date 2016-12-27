@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6027A2F51E0BAA2200B2F7C3 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6027A2F41E0BAA2200B2F7C3 /* TableController.swift */; };
+		60323D3F1E1259C900B83623 /* YHPageViewHIddenBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60323D3E1E1259C900B83623 /* YHPageViewHIddenBarDelegate.swift */; };
 		60B120451E062ECB00A89165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B120441E062ECB00A89165 /* AppDelegate.swift */; };
 		60B120471E062ECB00A89165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B120461E062ECB00A89165 /* ViewController.swift */; };
 		60B1204A1E062ECB00A89165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60B120481E062ECB00A89165 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		6027A2F41E0BAA2200B2F7C3 /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
+		60323D3E1E1259C900B83623 /* YHPageViewHIddenBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHPageViewHIddenBarDelegate.swift; sourceTree = "<group>"; };
 		60B120411E062ECB00A89165 /* YHPageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHPageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B120441E062ECB00A89165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60B120461E062ECB00A89165 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				60C264B21E0BB268006A3413 /* YHPageViewController+Director.swift */,
 				60C264B41E0BB2A8006A3413 /* YHPageViewController+Delegate.swift */,
 				60C264B61E0BB2BD006A3413 /* YHPageViewController+DataSource.swift */,
+				60323D3E1E1259C900B83623 /* YHPageViewHIddenBarDelegate.swift */,
 			);
 			path = YHPageViewController;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				60B120471E062ECB00A89165 /* ViewController.swift in Sources */,
 				6027A2F51E0BAA2200B2F7C3 /* TableController.swift in Sources */,
 				60B1207F1E078DEB00A89165 /* YHPageViewControllerExtension.swift in Sources */,
+				60323D3F1E1259C900B83623 /* YHPageViewHIddenBarDelegate.swift in Sources */,
 				60B120731E067D1F00A89165 /* YHPageViewController.swift in Sources */,
 				60B120451E062ECB00A89165 /* AppDelegate.swift in Sources */,
 				60B120791E069C9E00A89165 /* YHPageViewDataSource.swift in Sources */,
