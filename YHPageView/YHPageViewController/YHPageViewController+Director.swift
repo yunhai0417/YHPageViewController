@@ -8,6 +8,8 @@
 
 import Foundation
 
+//child viewcontrollers 滑动方向
+
 enum YHPageScrollDirection {
     case left
     case right

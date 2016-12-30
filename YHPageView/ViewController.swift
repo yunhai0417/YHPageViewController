@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pageViewBtnAction(_ sender: Any) {
-        let vc = CustomViewController()
+        let vc = CustomViewController2()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -28,30 +28,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
-        
-       
-        
-       /* 
-        if statue {
-            self.navigationController?.navigationBar.isHidden = false
-        }
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            if !self.statue{
-                self.navigationController?.navigationBar.frame = CGRect(x: 0, y:   -44, width: self.view.frame.size.width, height: 44)
-            }else{
-                self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 20 , width: self.view.frame.size.width, height: 44)
-            }
-            
-        }, completion: {Void in
-            if !self.statue {
-                self.navigationController?.navigationBar.isHidden = true
-            }
-            self.statue = !self.statue
-        })
-        */
 
 
 }

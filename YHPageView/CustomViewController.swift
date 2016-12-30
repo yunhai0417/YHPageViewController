@@ -9,6 +9,7 @@
 import UIKit
 
 class CustomViewController: YHPageViewController ,YHPageViewHIddenBarDelegate{
+
     
     
     override func viewDidLoad() {
