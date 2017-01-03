@@ -23,6 +23,8 @@ class YHTabBarView: UIView
     fileprivate var rightView:UIView?
     fileprivate var leftView:UIView?
     fileprivate var collectionview:UICollectionView?
+    fileprivate var barscrollView:UIScrollView?
+    fileprivate var bottomLineView:UIView?
     
     // porperty
     fileprivate var selectIndex:Int = Int.max
@@ -60,8 +62,9 @@ class YHTabBarView: UIView
         
         YHTabBarViewConfigLeftView()
         YHTabBarViewConfigRightView()
+        YHTabBarViewScrollView()
         YHTabBarViewCollectionView()
-        
+        YHTabBarBottomLineView()
     }
     //加载leftView
     fileprivate func YHTabBarViewConfigLeftView(){
@@ -129,9 +132,29 @@ class YHTabBarView: UIView
         collectionview?.register(YHTabBarViewItem.self, forCellWithReuseIdentifier: "YHTabBarItem")
 
     }
-    
-    
-    
+    // MARK: loading ScrollView
+    fileprivate func YHTabBarViewScrollView(){
+        
+        var leftsize:CGFloat = 0
+        if let leftView = leftView{
+            leftsize = leftView.frame.size.width
+        }
+        var rightsize:CGFloat = 0
+        if let rightView = rightView{
+            rightsize = rightView.frame.size.width
+        }
+        
+        barscrollView = UIScrollView(frame: CGRect(x: leftsize, y: 0, width: self.frame.size.width - leftsize - rightsize, height: self.frame.size.height))
+        barscrollView?.backgroundColor = UIColor.cyan
+        self.addSubview(barscrollView!)
+    }
+    // MARK: loading BottomLineView
+    fileprivate func YHTabBarBottomLineView(){
+        bottomLineView = UIView(frame: CGRect(x: 0, y: self.frame.size.height - lineBottomHeight, width: 0, height: lineBottomHeight))
+        bottomLineView?.backgroundColor = ItemSelectedColor
+        barscrollView?.addSubview(bottomLineView!)
+        barscrollView?.contentSize = (collectionview?.contentSize)!
+    }
 }
 
 // MARK: UICollectionView delegate datasource layoutDelegate
@@ -178,6 +201,24 @@ extension YHTabBarView {
                 collectionView.setContentOffset(CGPoint(x: collectionView.contentSize.width - collectionView.frame.size.width , y: 0), animated: true)
             }
             
+            //下标点击移动
+            
+            UIView.animate(withDuration: 0.2, animations:{
+                if let bottomLineView = self.bottomLineView {
+                    
+                    if offset < collectionView.frame.size.width / 2 {
+                        bottomLineView.frame = CGRect(x: rectCell.origin.x, y: self.frame.size.height - self.lineBottomHeight, width: rectCell.size.width, height:self.lineBottomHeight)
+                    }else if  offset + collectionView.frame.size.width / 2 < collectionView.contentSize.width {
+                        
+                        bottomLineView.frame = CGRect(x: rectCell.origin.x - collectionView.frame.size.width / 2, y: self.frame.size.height - self.lineBottomHeight, width: rectCell.size.width, height:self.lineBottomHeight)
+                    }else{
+                        bottomLineView.frame = CGRect(x: rectCell.origin.x, y: self.frame.size.height - self.lineBottomHeight, width: rectCell.size.width, height:self.lineBottomHeight)
+                    }
+
+                    
+                }
+            }, completion: {Void in
+            })
             
         }
         selectIndex = indexPath.row
