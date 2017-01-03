@@ -31,7 +31,7 @@ class CustomViewController2: UIViewController , YHTabBarViewDelegate,YHTabBarVie
     
     func tabBarLeftView(_ tabBarView: YHTabBarView) -> UIView? {
         let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-        
+        rightView.backgroundColor = UIColor.red
         let rightButton =  UIButton(type: UIButtonType.custom)
         rightButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         rightButton.setImage(UIImage(named: "nn_catagory_all"), for: UIControlState())
@@ -44,7 +44,7 @@ class CustomViewController2: UIViewController , YHTabBarViewDelegate,YHTabBarVie
 
     func tabBarRightView(_ tabBarView: YHTabBarView) -> UIView? {
         let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-        
+        rightView.backgroundColor = UIColor.red
         let rightButton =  UIButton(type: UIButtonType.custom)
         rightButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         rightButton.setImage(UIImage(named: "nn_catagory_all"), for: UIControlState())

@@ -16,7 +16,7 @@ import UIKit
      * rightView.frame.orgin.y = default 0
      * rightView.frame.size.height = YHTabBarView.frame.size.height
      */
-    @objc optional func tabBarRightView(_ tabBarView:YHTabBarView ) -> UIView?
+    func tabBarRightView(_ tabBarView:YHTabBarView ) -> UIView?
     
     
     
@@ -25,5 +25,5 @@ import UIKit
      * leftView.frame.orgin.y = default 0
      * leftView.frame.size.height = YHTabBarView.frame.size.height
      */
-    @objc optional func tabBarLeftView(_ tabBarView:YHTabBarView ) -> UIView?
+    func tabBarLeftView(_ tabBarView:YHTabBarView ) -> UIView?
 }

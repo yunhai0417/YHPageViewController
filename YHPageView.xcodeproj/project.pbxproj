@@ -28,6 +28,7 @@
 		60E201CD1E164FA000B76D0C /* YHTabBarViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E201CC1E164FA000B76D0C /* YHTabBarViewDataSource.swift */; };
 		60E201CF1E164FC000B76D0C /* YHTabBarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E201CE1E164FC000B76D0C /* YHTabBarViewDelegate.swift */; };
 		60E201D11E1655C600B76D0C /* CustomViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E201D01E1655C600B76D0C /* CustomViewController2.swift */; };
+		60E201D31E1B768B00B76D0C /* YHTabBarViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E201D21E1B768B00B76D0C /* YHTabBarViewItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		60E201CC1E164FA000B76D0C /* YHTabBarViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHTabBarViewDataSource.swift; sourceTree = "<group>"; };
 		60E201CE1E164FC000B76D0C /* YHTabBarViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHTabBarViewDelegate.swift; sourceTree = "<group>"; };
 		60E201D01E1655C600B76D0C /* CustomViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController2.swift; sourceTree = "<group>"; };
+		60E201D21E1B768B00B76D0C /* YHTabBarViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHTabBarViewItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				60E201CA1E16498100B76D0C /* YHTabBarView.swift */,
 				60E201CC1E164FA000B76D0C /* YHTabBarViewDataSource.swift */,
 				60E201CE1E164FC000B76D0C /* YHTabBarViewDelegate.swift */,
+				60E201D21E1B768B00B76D0C /* YHTabBarViewItem.swift */,
 			);
 			path = YHPageViews;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				60B120731E067D1F00A89165 /* YHPageViewController.swift in Sources */,
 				60B120451E062ECB00A89165 /* AppDelegate.swift in Sources */,
 				60E201CB1E16498100B76D0C /* YHTabBarView.swift in Sources */,
+				60E201D31E1B768B00B76D0C /* YHTabBarViewItem.swift in Sources */,
 				60B120791E069C9E00A89165 /* YHPageViewDataSource.swift in Sources */,
 				60B1207D1E06D6FE00A89165 /* CustomViewController.swift in Sources */,
 			);

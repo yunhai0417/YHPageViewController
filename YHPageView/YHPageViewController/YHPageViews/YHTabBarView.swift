@@ -16,27 +16,33 @@ import UIKit
  *          BottomLine:下滑背景跟随lineView
  *          lineView:下划线
  */
-class YHTabBarView: UIView {
+class YHTabBarView: UIView
+    ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     // IB
     fileprivate var rightView:UIView?
     fileprivate var leftView:UIView?
-//    fileprivate var collectionview:UICollectionView?
+    fileprivate var collectionview:UICollectionView?
     
     // porperty
+    fileprivate var selectIndex:Int = Int.max
     
     // weak
     weak var delegate:YHTabBarViewDelegate?
     weak var dataSource:YHTabBarViewDataSource?
     
-    
+    //public 共有属性  背景色
+    public var tabViewBackgroundColor = UIColor.white
+    public var lineBottomColor = UIColor(red: 4/255.0, green: 157/255.0, blue: 234/255.0, alpha: 1.0)
+    public var lineBottomHeight:CGFloat = 2
+    public var titlesMinSpace:CGFloat = 18   //文字左右空白
+    public var ItemSelectedColor = UIColor(red: 4/255.0, green: 157/255.0, blue: 234/255.0, alpha: 1.0)     //选择颜色
+    public var ItemUnSelectedColor = UIColor(red: 84/255.0, green: 90/255.0, blue: 97/255.0, alpha: 1.0)    //未选择颜色
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,27 +59,118 @@ class YHTabBarView: UIView {
     public func reloadDataSource(){
         
         YHTabBarViewConfigLeftView()
-        
+        YHTabBarViewConfigRightView()
+        YHTabBarViewCollectionView()
         
     }
-    
+    //加载leftView
     fileprivate func YHTabBarViewConfigLeftView(){
         guard let dataSource = dataSource else {
             return
         }
-        
+        //添加左边位置
         if let leftView = leftView {
             leftView.removeFromSuperview()
         }
         leftView = nil
-        if let view = dataSource.tabBarLeftView?(self) {
+        if let view = dataSource.tabBarLeftView(self) {
             leftView = view
-            
         }
         
-        if leftView != nil{
-            self.addSubview(leftView!)
+        if let leftView = leftView{
+            leftView.frame = CGRect(x: 0, y: 0, width: leftView.frame.size.width, height: self.frame.size.height)
+            self.addSubview(leftView)
         }
+        
+        
+    }
     
+    fileprivate func YHTabBarViewConfigRightView(){
+        guard let dataSource = dataSource else {
+            return
+        }
+        //添加右边位置
+        if let rightView = rightView{
+            rightView.removeFromSuperview()
+        }
+        rightView = nil
+        
+        if let view = dataSource.tabBarRightView(self){
+            rightView = view
+        }
+        
+        if let rightView = rightView{
+            rightView.frame = CGRect(x: self.frame.size.width - rightView.frame.size.width, y: 0, width: rightView.frame.size.width, height: self.frame.size.height)
+            self.addSubview(rightView)
+        }
+    }
+    
+    fileprivate func YHTabBarViewCollectionView(){
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        var leftsize:CGFloat = 0
+        if let leftView = leftView{
+            leftsize = leftView.frame.size.width
+        }
+        var rightsize:CGFloat = 0
+        if let rightView = rightView{
+            rightsize = rightView.frame.size.width
+        }
+        
+        collectionview = UICollectionView(frame: CGRect(x: leftsize, y: 0, width: self.frame.size.width - leftsize - rightsize, height: self.frame.size.height), collectionViewLayout: layout)
+        collectionview?.backgroundColor = UIColor.clear
+        collectionview?.delegate = self
+        collectionview?.dataSource = self
+        collectionview?.showsHorizontalScrollIndicator = false        
+        self.addSubview(collectionview!)
+    
+        collectionview?.register(YHTabBarViewItem.self, forCellWithReuseIdentifier: "YHTabBarItem")
+
+    }
+    
+    
+    
+}
+
+
+extension YHTabBarView {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YHTabBarItem", for: indexPath) as? YHTabBarViewItem {
+            cell.itemLabel?.text = "xxxxxx \(indexPath.row)"
+            cell.itemLabel?.textColor = ItemUnSelectedColor
+            if indexPath.row == selectIndex {
+                cell.itemLabel?.textColor = ItemSelectedColor
+            }
+            return cell
+        }
+        
+        
+        return UICollectionViewCell()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 44)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? YHTabBarViewItem{
+                cell.itemLabel?.textColor = ItemSelectedColor
+        }
+        selectIndex = indexPath.row
+        print(indexPath.row)
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? YHTabBarViewItem{
+            cell.itemLabel?.textColor = ItemUnSelectedColor
+        }
     }
 }
