@@ -50,7 +50,7 @@ class YHTabBarView: UIView
     }
     
     deinit {
-        print("current YHTabBarView")
+        print("deinit current YHTabBarView")
     }
     
     
@@ -164,13 +164,12 @@ extension YHTabBarView {
         if let cell = collectionView.cellForItem(at: indexPath) as? YHTabBarViewItem{
                 cell.itemLabel?.textColor = ItemSelectedColor
             
-            print(collectionView.convert(cell.frame, to: collectionView))
-            print(collectionView.convert(cell.frame, to: self))
-
-            //矫正 collectionviewcell 在屏幕中的相对位置 self.frame.size.wigth / 2 = x + cell.frame.size.wight / 2 
+//            print(collectionView.convert(cell.frame, to: collectionView))
+//            print(collectionView.convert(cell.frame, to: self))
+//            print(collectionView.frame)
+            //矫正 collectionviewcell 在屏幕中的相对位置 self.frame.size.wigth / 2 = x + cell.frame.size.wight / 2
             let rectCell = collectionView.convert(cell.frame, to: collectionView)
-            let rectView = collectionView.convert(cell.frame, to: self)
-            let offset = rectCell.origin.x + rectCell.size.width
+            let offset = rectCell.origin.x + rectCell.size.width / 2
             if offset < collectionView.frame.size.width / 2 {
                 collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }else if  offset + collectionView.frame.size.width / 2 < collectionView.contentSize.width {
@@ -182,8 +181,6 @@ extension YHTabBarView {
             
         }
         selectIndex = indexPath.row
-        print(indexPath.row)
-        
     }
 
     
