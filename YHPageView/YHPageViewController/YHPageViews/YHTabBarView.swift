@@ -84,7 +84,7 @@ class YHTabBarView: UIView
         
         
     }
-    
+    // Mark: loading rightView
     fileprivate func YHTabBarViewConfigRightView(){
         guard let dataSource = dataSource else {
             return
@@ -105,6 +105,7 @@ class YHTabBarView: UIView
         }
     }
     
+    // Mark: loading collectionview
     fileprivate func YHTabBarViewCollectionView(){
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -133,7 +134,7 @@ class YHTabBarView: UIView
     
 }
 
-
+// MARK: UICollectionView delegate datasource layoutDelegate
 extension YHTabBarView {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -162,9 +163,27 @@ extension YHTabBarView {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? YHTabBarViewItem{
                 cell.itemLabel?.textColor = ItemSelectedColor
+            
+            print(collectionView.convert(cell.frame, to: collectionView))
+            print(collectionView.convert(cell.frame, to: self))
+
+            //矫正 collectionviewcell 在屏幕中的相对位置 self.frame.size.wigth / 2 = x + cell.frame.size.wight / 2 
+            let rectCell = collectionView.convert(cell.frame, to: collectionView)
+            let rectView = collectionView.convert(cell.frame, to: self)
+            let offset = rectCell.origin.x + rectCell.size.width
+            if offset < collectionView.frame.size.width / 2 {
+                collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            }else if  offset + collectionView.frame.size.width / 2 < collectionView.contentSize.width {
+                collectionView.setContentOffset(CGPoint(x: offset - collectionView.frame.size.width / 2, y: 0), animated: true)
+            }else{
+                collectionView.setContentOffset(CGPoint(x: collectionView.contentSize.width - collectionView.frame.size.width , y: 0), animated: true)
+            }
+            
+            
         }
         selectIndex = indexPath.row
         print(indexPath.row)
+        
     }
 
     
@@ -172,5 +191,12 @@ extension YHTabBarView {
         if let cell = collectionView.cellForItem(at: indexPath) as? YHTabBarViewItem{
             cell.itemLabel?.textColor = ItemUnSelectedColor
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
     }
 }
