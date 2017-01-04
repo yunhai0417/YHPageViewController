@@ -188,11 +188,15 @@ extension YHTabBarView {
                 cell.itemLabel?.textColor = ItemSelectedColor
             
 //            print(collectionView.convert(cell.frame, to: collectionView))
-//            print(collectionView.convert(cell.frame, to: self))
+            print(collectionView.convert(cell.frame, to: self))
 //            print(collectionView.frame)
             //矫正 collectionviewcell 在屏幕中的相对位置 self.frame.size.wigth / 2 = x + cell.frame.size.wight / 2
             let rectCell = collectionView.convert(cell.frame, to: collectionView)
             let offset = rectCell.origin.x + rectCell.size.width / 2
+            
+            
+            
+            
             if offset < collectionView.frame.size.width / 2 {
                 collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }else if  offset + collectionView.frame.size.width / 2 < collectionView.contentSize.width {
@@ -201,25 +205,24 @@ extension YHTabBarView {
                 collectionView.setContentOffset(CGPoint(x: collectionView.contentSize.width - collectionView.frame.size.width , y: 0), animated: true)
             }
             
-            //下标点击移动
             
-            UIView.animate(withDuration: 0.2, animations:{
-                if let bottomLineView = self.bottomLineView {
-                    
-                    if offset < collectionView.frame.size.width / 2 {
-                        bottomLineView.frame = CGRect(x: rectCell.origin.x, y: self.frame.size.height - self.lineBottomHeight, width: rectCell.size.width, height:self.lineBottomHeight)
-                    }else if  offset + collectionView.frame.size.width / 2 < collectionView.contentSize.width {
-                        
-                        bottomLineView.frame = CGRect(x: rectCell.origin.x - collectionView.frame.size.width / 2, y: self.frame.size.height - self.lineBottomHeight, width: rectCell.size.width, height:self.lineBottomHeight)
-                    }else{
-                        bottomLineView.frame = CGRect(x: rectCell.origin.x, y: self.frame.size.height - self.lineBottomHeight, width: rectCell.size.width, height:self.lineBottomHeight)
-                    }
+           
+           
+           
+            
+        }
+        
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? YHTabBarViewItem{
+        let rectView = collectionView.convert(cell.frame, to: self.barscrollView)
+            print(collectionView.convert(cell.frame, to: self))
 
-                    
-                }
-            }, completion: {Void in
-            })
-            
+        UIView.animate(withDuration: 0.2, animations:{
+            if let bottomLineView = self.bottomLineView {
+                bottomLineView.frame = CGRect(x: rectView.origin.x, y: self.frame.size.height - self.lineBottomHeight, width: rectView.size.width, height:self.lineBottomHeight)
+            }
+        }, completion: {Void in
+        })
         }
         selectIndex = indexPath.row
     }
@@ -237,4 +240,10 @@ extension YHTabBarView {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
+}
+
+
+extension YHTabBarView {
+    
+
 }

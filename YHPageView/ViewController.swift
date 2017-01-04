@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pageViewBtnAction(_ sender: Any) {
-        let vc = CustomViewController2()
+        let vc = CustomViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
