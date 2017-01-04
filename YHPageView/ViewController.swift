@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+ 
     fileprivate var statue:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
