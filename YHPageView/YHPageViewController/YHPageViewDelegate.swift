@@ -31,7 +31,7 @@ protocol YHPageViewDelegate : class{
     
 }
 
-extension YHPageViewDelegate{
+extension YHPageViewController{
     func pageScrollviewWillShow(_ fromIndex:Int ,toIndex:Int, animated:Bool){
     
     

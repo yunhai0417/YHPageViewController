@@ -22,7 +22,6 @@
 		60B1207D1E06D6FE00A89165 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1207C1E06D6FE00A89165 /* CustomViewController.swift */; };
 		60B1207F1E078DEB00A89165 /* YHPageViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1207E1E078DEB00A89165 /* YHPageViewControllerExtension.swift */; };
 		60C264B31E0BB268006A3413 /* YHPageViewController+Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C264B21E0BB268006A3413 /* YHPageViewController+Director.swift */; };
-		60C264B71E0BB2BD006A3413 /* YHPageViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C264B61E0BB2BD006A3413 /* YHPageViewController+DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		60B1207C1E06D6FE00A89165 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		60B1207E1E078DEB00A89165 /* YHPageViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YHPageViewControllerExtension.swift; path = YHPageView/YHPageViewController/YHPageViewControllerExtension.swift; sourceTree = SOURCE_ROOT; };
 		60C264B21E0BB268006A3413 /* YHPageViewController+Director.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "YHPageViewController+Director.swift"; path = "YHPageView/YHPageViewController/YHPageViewController+Director.swift"; sourceTree = SOURCE_ROOT; };
-		60C264B61E0BB2BD006A3413 /* YHPageViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "YHPageViewController+DataSource.swift"; path = "YHPageView/YHPageViewController/YHPageViewController+DataSource.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +152,6 @@
 				60B120781E069C9E00A89165 /* YHPageViewDataSource.swift */,
 				60B1207E1E078DEB00A89165 /* YHPageViewControllerExtension.swift */,
 				60C264B21E0BB268006A3413 /* YHPageViewController+Director.swift */,
-				60C264B61E0BB2BD006A3413 /* YHPageViewController+DataSource.swift */,
 				60323D3E1E1259C900B83623 /* YHPageViewHIddenBarDelegate.swift */,
 			);
 			path = YHPageViewController;
@@ -297,7 +294,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60C264B71E0BB2BD006A3413 /* YHPageViewController+DataSource.swift in Sources */,
 				60C264B31E0BB268006A3413 /* YHPageViewController+Director.swift in Sources */,
 				60B120771E069C5500A89165 /* YHPageViewDelegate.swift in Sources */,
 				60B120471E062ECB00A89165 /* ViewController.swift in Sources */,

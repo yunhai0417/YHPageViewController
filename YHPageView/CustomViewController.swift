@@ -24,51 +24,10 @@ class CustomViewController: YHPageViewController ,YHPageViewHIddenBarDelegate{
 
     }
     
-
-    
-    override func numberOfControllers(_ pageView: YHPageViewController) -> Int {
-        return 11
-    }
-    
-  
-    
-    override func pageTabRightView(_ pageView: YHPageViewController) -> UIView? {
-        let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-        
-        let rightButton =  UIButton(type: UIButtonType.custom)
-        rightButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-        rightButton.setImage(UIImage(named: "nn_catagory_all"), for: UIControlState())
-        rightButton.setImage(UIImage(named: "nn_catagory_all"), for: UIControlState.highlighted)
-        
-        rightButton.addTarget(self, action: #selector(CustomViewController.rightBtnAction(_:)), for: UIControlEvents.touchUpInside)
-        rightView.addSubview(rightButton)
-        return rightView
-    }
-    
-    
-    
     func rightBtnAction(_ sender:UIButton){
         print("xxx")
     }
     
-    
-    override func pageView(_ pageView: YHPageViewController, controllerAtIndex index: Int) -> UIViewController {
-        
-        let vc = TableController()
-        vc.pageIndex = index
-        vc.delegate = self
-        return vc
-    }
-    
-    
-    override func pageViewTopSize(_ pageView: YHPageViewController) -> CGRect {
-        return CGRect(x: 0, y: 64, width: view.frame.size.width, height: 44)
-    }
-    
-    override func pageScrollViewSize(_ pageView: YHPageViewController) -> CGRect {
-        let screenBounds:CGRect = UIScreen.main.bounds
-        return CGRect(x: 0, y: 64, width: screenBounds.size.width, height: screenBounds.size.height - 64)
-    }
     
     func changeNavBarStatue(_ scrollview:UIScrollView, _ isHidden: Bool, _ currentOffset: CGFloat) {
         
@@ -131,26 +90,74 @@ class CustomViewController: YHPageViewController ,YHPageViewHIddenBarDelegate{
 
 extension CustomViewController{
     
-    func pageScrollviewWillShow(_ fromIndex: Int, toIndex: Int, animated: Bool) {
+    override func pageScrollviewWillShow(_ fromIndex: Int, toIndex: Int, animated: Bool) {
         
     }
     
-    func pageScrollviewDidShow(_ fromIndex: Int, toIndex: Int, finished: Bool) {
+    override func pageScrollviewDidShow(_ fromIndex: Int, toIndex: Int, finished: Bool) {
         
     }
     
-    func pageScrollview(_ pageViewController: YHPageViewController, willTransitonFrom fromVC: UIViewController, toViewController toVC: UIViewController) {
+    override func pageScrollview(_ pageViewController: YHPageViewController, willTransitonFrom fromVC: UIViewController, toViewController toVC: UIViewController) {
     }
     
-    func pageScrollview(_ pageViewController: YHPageViewController, didTransitonFrom fromVC: UIViewController, toViewController toVC: UIViewController) {
+    override func pageScrollview(_ pageViewController: YHPageViewController, didTransitonFrom fromVC: UIViewController, toViewController toVC: UIViewController) {
         
     }
     
-    func pageScrollview(_ pageViewController: YHPageViewController, didLeaveViewController fromVC: UIViewController, toViewController toVC: UIViewController, finished: Bool) {
+    override func pageScrollview(_ pageViewController: YHPageViewController, didLeaveViewController fromVC: UIViewController, toViewController toVC: UIViewController, finished: Bool) {
         
     }
     
-    func pageScrollview(_ pageViewController: YHPageViewController, willLeaveViewController fromVC: UIViewController, toViewController toVC: UIViewController, animated: Bool) {
+    override func pageScrollview(_ pageViewController: YHPageViewController, willLeaveViewController fromVC: UIViewController, toViewController toVC: UIViewController, animated: Bool) {
         
     }
 }
+
+
+extension CustomViewController {
+    override func numberOfControllers(_ pageView: YHPageViewController) -> Int {
+        return 11
+    }
+    
+    
+    
+    override func pageTabRightView(_ pageView: YHPageViewController) -> UIView? {
+        let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        
+        let rightButton =  UIButton(type: UIButtonType.custom)
+        rightButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        rightButton.setImage(UIImage(named: "nn_catagory_all"), for: UIControlState())
+        rightButton.setImage(UIImage(named: "nn_catagory_all"), for: UIControlState.highlighted)
+        
+        rightButton.addTarget(self, action: #selector(CustomViewController.rightBtnAction(_:)), for: UIControlEvents.touchUpInside)
+        rightView.addSubview(rightButton)
+        return rightView
+    }
+    
+    
+    
+    
+    
+    
+    override func pageView(_ pageView: YHPageViewController, controllerAtIndex index: Int) -> UIViewController {
+        
+        let vc = TableController()
+        vc.pageIndex = index
+        vc.delegate = self
+        return vc
+    }
+    
+    
+    override func pageViewTopSize(_ pageView: YHPageViewController) -> CGRect {
+        return CGRect(x: 0, y: 64, width: view.frame.size.width, height: 44)
+    }
+    
+    override func pageScrollViewSize(_ pageView: YHPageViewController) -> CGRect {
+        let screenBounds:CGRect = UIScreen.main.bounds
+        return CGRect(x: 0, y: 64, width: screenBounds.size.width, height: screenBounds.size.height - 64)
+    }
+
+    
+}
+
