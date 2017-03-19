@@ -4,67 +4,67 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>tablist0</string>
+		<string>本地</string>
 		<key>redhot</key>
 		<string>0</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>tablist1</string>
+		<string>电影</string>
 		<key>redhot</key>
 		<string>1</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>tablist2</string>
+		<string>彩票</string>
 		<key>redhot</key>
 		<string>2</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>tablist3</string>
+		<string>娱乐</string>
 		<key>redhot</key>
 		<string>3</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>tablist4</string>
+		<string>饮食</string>
 		<key>redhot</key>
 		<string>4</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>tablist5</string>
+		<string>新闻</string>
 		<key>redhot</key>
 		<string>5</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>tablist6</string>
+		<string>测试本地内容</string>
 		<key>redhot</key>
 		<string>6</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>tablist7</string>
+		<string>测试网络花卉水草</string>
 		<key>redhot</key>
 		<string>7</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>tablist8</string>
+		<string>花鸟鱼虫</string>
 		<key>redhot</key>
 		<string>8</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>tablist9</string>
+		<string>雕梁画栋</string>
 		<key>redhot</key>
 		<string>9</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>tablist10</string>
+		<string>文学</string>
 		<key>redhot</key>
 		<string>10</string>
 	</dict>

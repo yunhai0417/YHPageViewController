@@ -10,12 +10,28 @@ import UIKit
 
 class CustomViewController: YHPageViewController ,YHPageViewHIddenBarDelegate{
 
-    
+    var arrayname = [[String:String]]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        
-        
+        let path = Bundle.main.path(forResource: "tabnames", ofType:"plist")
+        // 加载 plist 文件
+        arrayname = NSArray(contentsOfFile: path!) as! [[String : String]]
+        for item in arrayname {
+            if let name = item["name"] {
+                print( name)
+                
+            }
+            
+            if let redhot = item["redhot"] {
+                print( redhot)
+                
+            }
+            
+        }
+
         
         
         loadCurrentUI()
@@ -116,8 +132,17 @@ extension CustomViewController{
 
 
 extension CustomViewController {
+    
+    
     override func numberOfControllers(_ pageView: YHPageViewController) -> Int {
-        return 11
+        return arrayname.count
+    }
+    
+    override func pageView(_ pageView:YHPageViewController,titleAtIndex index:Int) -> String{
+        if let name = arrayname[index]["name"] {
+                return name
+        }
+        return ""
     }
     
     override func pageTabRightView(_ pageView: YHPageViewController) -> UIView? {
@@ -131,6 +156,7 @@ extension CustomViewController {
         rightButton.addTarget(self, action: #selector(CustomViewController.rightBtnAction(_:)), for: UIControlEvents.touchUpInside)
         rightView.addSubview(rightButton)
         return rightView
+//        return nil
     }
     
     override func pageView(_ pageView: YHPageViewController, controllerAtIndex index: Int) -> UIViewController {
