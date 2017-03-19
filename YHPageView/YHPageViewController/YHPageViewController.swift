@@ -24,8 +24,9 @@ class YHPageViewController: UIViewController,
     
     
     //MARK:-properties
-    fileprivate var topTabScrollViewWidth:CGFloat = 0
-    fileprivate var rightButtonWidth:CGFloat = 0    //右边按钮宽度
+    fileprivate var topTabScrollViewWidth:CGFloat = 0  //tabbar可显示宽度
+    fileprivate var rightView:UIView? //tab右边view
+    fileprivate var leftView:UIView?  //tab左边view
     fileprivate var _currentIndex:Int = 0           // 当前位置下标
     fileprivate var _lastSelectedIndex = 0          // 用于记录上次选择的index
     fileprivate var originOffset = 0.0                  //用于手势拖动scrollView时，判断方向
@@ -85,10 +86,23 @@ class YHPageViewController: UIViewController,
         self.navigationController?.navigationBar.isTranslucent = false
         self.view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view.
-        self.delegate = self
-        self.dataSource = self
-        self.memCache.delegate = self
+        delegate = self
+        dataSource = self
+        memCache.delegate = self
         //load CurrentUI
+        
+        guard let dataSource = dataSource else {
+            return
+        }
+        //load Tap RightView
+        rightView = dataSource.pageTabRightView(self)
+        //load Tap LeftView
+        leftView = dataSource.pageTabLeftView(self)
+        
+
+        
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -517,14 +531,19 @@ class YHPageViewController: UIViewController,
             }
             if let pageTabView = pageTabView{
                     pageTabView.backgroundColor = tabViewBackgroundColor
-
-                if let rightView = dataSource?.pageTabRightView(self) {
+                
+                //pageTab 添加 rightView
+                if let rightView = rightView {
                     let rightviewsize = rightView.bounds.size.width / 2
                     pageTabView.addSubview(rightView)
                     rightView.center = CGPoint(x: pageTabView.frame.width - rightviewsize,
                                                y: pageTabView.frame.size.height / 2)
                 }
-                
+                //pageTab 添加 leftView
+                if let leftView = leftView {
+                    pageTabView.addSubview(leftView)
+                    leftView.center = CGPoint(x: leftView.bounds.size.width / 2, y: pageTabView.frame.size.height / 2)
+                }
 
             }
             
@@ -537,13 +556,22 @@ class YHPageViewController: UIViewController,
             if let pageTabView = pageTabView{
                 if let dataSource = dataSource{
                     
-                    if let rightView = dataSource.pageTabRightView(self){
-                        
-                        rightButtonWidth = rightView.bounds.size.width
-                        topTabScrollViewWidth = pageTabView.frame.width - rightButtonWidth
+                    var topTabLeftViewWidth:CGFloat = 0
+                    
+                    topTabScrollViewWidth = pageTabView.frame.width
+                    
+                    //设置rightView的宽度偏移
+                    if let rightView = rightView {
+                        topTabScrollViewWidth = topTabScrollViewWidth - rightView.bounds.size.width
                     }
+                    //设置leftview 的宽度便宜
+                    if let leftView = leftView {
+                        topTabLeftViewWidth = leftView.bounds.size.width
+                        topTabScrollViewWidth = topTabScrollViewWidth - topTabLeftViewWidth
+                    }
+                    
                     pageTabScrollview = UIScrollView()
-                    pageTabScrollview?.frame = CGRect(x: 0, y: pageTabView.frame.origin.y, width: topTabScrollViewWidth, height: pageTabView.frame.size.height)
+                    pageTabScrollview?.frame = CGRect(x: topTabLeftViewWidth, y: pageTabView.frame.origin.y, width: topTabScrollViewWidth, height: pageTabView.frame.size.height)
                     pageTabScrollview?.showsHorizontalScrollIndicator = false
                     pageTabScrollview?.alwaysBounceHorizontal = true
                     
@@ -643,6 +671,15 @@ class YHPageViewController: UIViewController,
         }
         didSet{
             var offset:CGFloat =  0
+            var rightViewWidth:CGFloat = 0
+            var leftViewWidth:CGFloat = 0
+            if let rightView = rightView {
+                rightViewWidth = rightView.bounds.size.width
+            }
+            if let leftView = leftView{
+                leftViewWidth = leftView.bounds.size.width
+            }
+            
             if let centerPoints = _centerPoints {
                 offset = centerPoints[_currentIndex]
             }
@@ -650,11 +687,11 @@ class YHPageViewController: UIViewController,
                 if  offset < topTabScrollViewWidth / 2 {
                     pageTabScrollview.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
                 }else if offset + topTabScrollViewWidth / 2 < pageTabScrollview.contentSize.width {
-                    if offset - topTabScrollViewWidth / 2 - rightButtonWidth / 2 < 0 {
+                    if offset - topTabScrollViewWidth / 2 - rightViewWidth / 2 - leftViewWidth / 2 < 0 {
                         pageTabScrollview.setContentOffset(CGPoint(x: 0 , y: 0), animated: true)
                     }else {
                         
-                        pageTabScrollview.setContentOffset(CGPoint(x: offset - topTabScrollViewWidth / 2 - rightButtonWidth / 2, y: 0), animated: true)
+                        pageTabScrollview.setContentOffset(CGPoint(x: offset - topTabScrollViewWidth / 2 - rightViewWidth / 2 - leftViewWidth / 2, y: 0), animated: true)
                     }
                 }else{
                     pageTabScrollview.setContentOffset(CGPoint(x: pageTabScrollview.contentSize.width - topTabScrollViewWidth , y: 0), animated: true)

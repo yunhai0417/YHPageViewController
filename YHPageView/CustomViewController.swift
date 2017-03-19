@@ -159,6 +159,26 @@ extension CustomViewController {
 //        return nil
     }
     
+    
+    override func pageTabLeftView(_ pageView: YHPageViewController) -> UIView? {
+//        let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+//        
+//        let rightButton =  UIButton(type: UIButtonType.custom)
+//        rightButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+//        rightButton.setImage(UIImage(named: "nn_catagory_all"), for: UIControlState())
+//        rightButton.setImage(UIImage(named: "nn_catagory_all"), for: UIControlState.highlighted)
+//        
+//        rightButton.addTarget(self, action: #selector(CustomViewController.rightBtnAction(_:)), for: UIControlEvents.touchUpInside)
+//        rightView.addSubview(rightButton)
+//        return rightView
+        
+                return nil
+
+    }
+    
+    
+    
+    
     override func pageView(_ pageView: YHPageViewController, controllerAtIndex index: Int) -> UIViewController {
         
         let vc = TableController()

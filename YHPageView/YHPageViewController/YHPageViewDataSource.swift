@@ -16,8 +16,9 @@ protocol YHPageViewDataSource : class {
     
     func pageView(_ pageView:YHPageViewController,controllerAtIndex index:Int) ->UIViewController
     
-    //设置右边view
+    //congig right,leftView  设置左边按钮 右边按钮 
     func pageTabRightView(_ pageView:YHPageViewController) ->UIView?
+    func pageTabLeftView(_ pageView:YHPageViewController) ->UIView?
     
     //设置pageTabview->CGRect
     func pageViewTopSize(_ pageView:YHPageViewController) ->CGRect
@@ -55,6 +56,10 @@ extension YHPageViewController{
     }
     
     func pageTabRightView(_ pageView: YHPageViewController) -> UIView? {
+        return nil
+    }
+    
+    func pageTabLeftView(_ pageView: YHPageViewController) -> UIView? {
         return nil
     }
     
