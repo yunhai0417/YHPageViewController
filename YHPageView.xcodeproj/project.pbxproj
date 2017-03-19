@@ -22,6 +22,7 @@
 		60B1207D1E06D6FE00A89165 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1207C1E06D6FE00A89165 /* CustomViewController.swift */; };
 		60B1207F1E078DEB00A89165 /* YHPageViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1207E1E078DEB00A89165 /* YHPageViewControllerExtension.swift */; };
 		60C264B31E0BB268006A3413 /* YHPageViewController+Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C264B21E0BB268006A3413 /* YHPageViewController+Director.swift */; };
+		60F99A5E1E7BD11A00B6A377 /* tabnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60F99A5D1E7BD11A00B6A377 /* tabnames.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		60B1207C1E06D6FE00A89165 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		60B1207E1E078DEB00A89165 /* YHPageViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YHPageViewControllerExtension.swift; path = YHPageView/YHPageViewController/YHPageViewControllerExtension.swift; sourceTree = SOURCE_ROOT; };
 		60C264B21E0BB268006A3413 /* YHPageViewController+Director.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "YHPageViewController+Director.swift"; path = "YHPageView/YHPageViewController/YHPageViewController+Director.swift"; sourceTree = SOURCE_ROOT; };
+		60F99A5D1E7BD11A00B6A377 /* tabnames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tabnames.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		60B120431E062ECB00A89165 /* YHPageView */ = {
 			isa = PBXGroup;
 			children = (
+				60F99A5C1E7BCFED00B6A377 /* YHPageResource */,
 				60C264B81E0BB5FA006A3413 /* YHPageViewController */,
 				60B120441E062ECB00A89165 /* AppDelegate.swift */,
 				60B120461E062ECB00A89165 /* ViewController.swift */,
@@ -155,6 +158,14 @@
 				60323D3E1E1259C900B83623 /* YHPageViewHIddenBarDelegate.swift */,
 			);
 			path = YHPageViewController;
+			sourceTree = "<group>";
+		};
+		60F99A5C1E7BCFED00B6A377 /* YHPageResource */ = {
+			isa = PBXGroup;
+			children = (
+				60F99A5D1E7BD11A00B6A377 /* tabnames.plist */,
+			);
+			name = YHPageResource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +280,7 @@
 			files = (
 				60B1204F1E062ECB00A89165 /* LaunchScreen.storyboard in Resources */,
 				60B1204C1E062ECB00A89165 /* Assets.xcassets in Resources */,
+				60F99A5E1E7BD11A00B6A377 /* tabnames.plist in Resources */,
 				60B1204A1E062ECB00A89165 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

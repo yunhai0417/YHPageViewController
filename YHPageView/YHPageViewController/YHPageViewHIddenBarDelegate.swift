@@ -8,10 +8,20 @@
 
 import UIKit
 
-@objc protocol YHPageViewHIddenBarDelegate : class {
+protocol YHPageViewHIddenBarDelegate : class {
     // 隐藏navBar
     func changeNavBarStatue(_ scrollview:UIScrollView,_ isHidden:Bool,_ currentOffset:CGFloat)
     
     // 获取当前nvBar的状态
     func currentNavBarSatue() -> Bool
+}
+
+extension YHPageViewHIddenBarDelegate {
+    func changeNavBarStatue(_ scrollview:UIScrollView,_ isHidden:Bool,_ currentOffset:CGFloat){
+    }
+    
+    
+    func currentNavBarSatue() -> Bool{
+        return true
+    }
 }

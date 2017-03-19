@@ -10,7 +10,7 @@ import UIKit
 
 protocol YHPageViewDelegate : class{
     
-    
+    //YHPageBaseVC.viewWillshow
     func pageScrollviewWillShow(_ fromIndex:Int ,toIndex:Int, animated:Bool)
     
     func pageScrollviewDidShow(_ fromIndex:Int ,toIndex:Int, finished:Bool)

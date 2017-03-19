@@ -120,8 +120,6 @@ extension CustomViewController {
         return 11
     }
     
-    
-    
     override func pageTabRightView(_ pageView: YHPageViewController) -> UIView? {
         let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         
@@ -134,11 +132,6 @@ extension CustomViewController {
         rightView.addSubview(rightButton)
         return rightView
     }
-    
-    
-    
-    
-    
     
     override func pageView(_ pageView: YHPageViewController, controllerAtIndex index: Int) -> UIViewController {
         
