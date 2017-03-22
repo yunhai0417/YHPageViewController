@@ -17,6 +17,9 @@ class ViewController: UIViewController {
         //self.navigationController?.hidesBarsOnSwipe = true
         self.title = "title"
         self.navigationController?.navigationBar.isTranslucent = false
+        
+        let viewcell = YHPageViewCell(frame: CGRect(x: 100, y: 100, width: 200, height: 44))
+        self.view.addSubview(viewcell)
     }
     
     @IBAction func pageViewBtnAction(_ sender: Any) {

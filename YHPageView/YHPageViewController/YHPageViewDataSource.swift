@@ -82,7 +82,7 @@ extension YHPageViewController{
     
     
     func pageView(_ pageView: YHPageViewController, titleAtIndex index: Int) -> String {
-        return "title\(index)"
+        return ""
     }
     
     func pageView(_ pageView: YHPageViewController, titlespaceAtIndex index: Int) -> CGFloat {
