@@ -23,8 +23,6 @@
 		60B1207F1E078DEB00A89165 /* YHPageViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1207E1E078DEB00A89165 /* YHPageViewControllerExtension.swift */; };
 		60C264B31E0BB268006A3413 /* YHPageViewController+Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C264B21E0BB268006A3413 /* YHPageViewController+Director.swift */; };
 		60F99A5E1E7BD11A00B6A377 /* tabnames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60F99A5D1E7BD11A00B6A377 /* tabnames.plist */; };
-		60F99A601E7F081800B6A377 /* YHPageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F99A5F1E7F081800B6A377 /* YHPageViewCell.swift */; };
-		60F99A621E7F0A9C00B6A377 /* YHPageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F99A611E7F0A9C00B6A377 /* YHPageViewCell.xib */; };
 		60F99A641E7F0CF300B6A377 /* CustomPageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F99A631E7F0CF300B6A377 /* CustomPageViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,8 +66,6 @@
 		60B1207E1E078DEB00A89165 /* YHPageViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YHPageViewControllerExtension.swift; path = YHPageView/YHPageViewController/YHPageViewControllerExtension.swift; sourceTree = SOURCE_ROOT; };
 		60C264B21E0BB268006A3413 /* YHPageViewController+Director.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "YHPageViewController+Director.swift"; path = "YHPageView/YHPageViewController/YHPageViewController+Director.swift"; sourceTree = SOURCE_ROOT; };
 		60F99A5D1E7BD11A00B6A377 /* tabnames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tabnames.plist; sourceTree = "<group>"; };
-		60F99A5F1E7F081800B6A377 /* YHPageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHPageViewCell.swift; sourceTree = "<group>"; };
-		60F99A611E7F0A9C00B6A377 /* YHPageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YHPageViewCell.xib; sourceTree = "<group>"; };
 		60F99A631E7F0CF300B6A377 /* CustomPageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPageViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,8 +159,6 @@
 				60B1207E1E078DEB00A89165 /* YHPageViewControllerExtension.swift */,
 				60C264B21E0BB268006A3413 /* YHPageViewController+Director.swift */,
 				60323D3E1E1259C900B83623 /* YHPageViewHIddenBarDelegate.swift */,
-				60F99A5F1E7F081800B6A377 /* YHPageViewCell.swift */,
-				60F99A611E7F0A9C00B6A377 /* YHPageViewCell.xib */,
 			);
 			path = YHPageViewController;
 			sourceTree = "<group>";
@@ -291,7 +285,6 @@
 				60B1204C1E062ECB00A89165 /* Assets.xcassets in Resources */,
 				60F99A5E1E7BD11A00B6A377 /* tabnames.plist in Resources */,
 				60B1204A1E062ECB00A89165 /* Main.storyboard in Resources */,
-				60F99A621E7F0A9C00B6A377 /* YHPageViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +313,6 @@
 				60B120771E069C5500A89165 /* YHPageViewDelegate.swift in Sources */,
 				60F99A641E7F0CF300B6A377 /* CustomPageViewCell.swift in Sources */,
 				60B120471E062ECB00A89165 /* ViewController.swift in Sources */,
-				60F99A601E7F081800B6A377 /* YHPageViewCell.swift in Sources */,
 				6027A2F51E0BAA2200B2F7C3 /* TableController.swift in Sources */,
 				60B1207F1E078DEB00A89165 /* YHPageViewControllerExtension.swift in Sources */,
 				60323D3F1E1259C900B83623 /* YHPageViewHIddenBarDelegate.swift in Sources */,
